@@ -6,7 +6,7 @@ from site import *
 
 # コマンドライン引数としてジャンルのキーを受ける
 # pol:政治　eco:経済　int:国際　spo:スポーツ　soc:社会　ent:エンタメ　it:IT　
-if len(sys.argv) < 4:
+if len(sys.argv) < 2:
 	print("実行方法: python3 genrereq.py [pol:政治　eco:経済　int:国際　spo:スポーツ　soc:社会　ent:エンタメ　it:IT]")
 
 f = open("json/" + sys.argv[1] + ".json", 'r')
