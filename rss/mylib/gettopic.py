@@ -7,7 +7,6 @@ import os
 def gootopic(title, body):
     path = os.path.dirname(os.path.abspath(__name__))
     token_path = os.path.join(path, '../../token.json')
-    print(type(token_path))
     f = open(token_path, "r")
     token_id = json.loads(f.read())['id']
     app_id = token_id

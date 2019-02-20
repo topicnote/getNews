@@ -22,7 +22,7 @@ def main():
     xml = rq.urlopen(url)
     soup = BeautifulSoup(xml, "xml")
     articles = soup.find_all("item")
-
+    dict = []
     print("=================================================")
     for i, article in enumerate(articles):
         title = article.find("title").contents
@@ -35,7 +35,9 @@ def main():
         print(article_url)
         print(keys)
 
-        dic.append({'title':title, 'url':article_url, 'keys':keys})
+        dict.append({'title': title, 'url': article_url, 'keys': keys})
+
+        print("a")
 
 
 if __name__ == "__main__":
