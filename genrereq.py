@@ -18,4 +18,12 @@ for target in json_dict:
     print(script)
     subprocess.call(["python3", script, site_url])
 
+dic = []
+for file in os.listdir("~/tmp/"): #sendseverで保存したjsonファイル群の読み出し
+	index = re.search('.json', file) #.jsonのみ取り出し
+	if index:
+		f = open(index, "r")
+		dic += json.load(f)
+
+print(dic)
 print("fin")
