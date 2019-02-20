@@ -1,0 +1,30 @@
+{
+    "jiji": {
+        "script": "jiji.py",
+        "url": "https://www.jiji.com/jc/list?g=etm"
+    },
+    "yomiuri": {
+        "script": "yomiuri.py",
+        "url": "https://www.yomiuri.co.jp/entame/ichiran/?from=ycnav1"
+    },
+    "sankei": {
+        "script": "sankei.py",
+        "url": "https://www.sankei.com/entertainments/newslist/entertainments-n1.html"
+    },
+    "jcast": {
+        "script": "jcast.py",
+        "url": "https://www.j-cast.com/entertainment/"
+    },
+    "gendai": {
+        "script": "gendai.py",
+        "url": "https://www.nikkan-gendai.com/articles/index/geino/category:2"
+    },
+    "gadgetnews":{
+        "script": "gedgetnews.py",
+        "url": "https://getnews.jp/cat/entertainment"
+    },
+    "zakzak": {
+        "script": "zakzak.py",
+        "url": "http://www.zakzak.co.jp/ent/list/enn-n.html?ownedref=genretop_not%20set_crumb"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "jiji": {
+        "script": "jiji.py",
+        "url": "https://www.jiji.com/jc/list?g=int"
+    },
+    "yomiuri": {
+        "script": "yomiuri.py",
+        "url": "https://www.yomiuri.co.jp/world/"
+    },
+    "sankei": {
+        "script": "sankei.py",
+        "url": "https://www.sankei.com/world/newslist/world-n1.html"
+    },
+    "zakzak": {
+        "script": "zakzak.py",
+        "url": "http://www.zakzak.co.jp/soc/list/for-n.html?ownedref=genretop_not%20set_crumb"
+    },
+    "afpbb":{
+        "script":"afpbb.py",
+        "url": "http://feeds.afpbb.com/rss/afpbb/afpbbnews"
+    }
+}
