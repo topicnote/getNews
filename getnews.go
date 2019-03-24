@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/mmcdole/gofeed"
 )
 
@@ -12,7 +10,9 @@ type newsStruct struct {
 	url   string
 }
 
-func getnews() []newsStruct {
+var articles []newsStruct
+
+func Getnews() []newsStruct {
 	fp := gofeed.NewParser()
 
 	feed, _ := fp.ParseURL("http://www.news24.jp/rss/index.rdf")
@@ -27,10 +27,9 @@ func getnews() []newsStruct {
 		news.id = index
 		newsSlice = append(newsSlice, news)
 	}
-	fmt.Println(newsSlice)
 	return newsSlice
 }
 
 func main() {
-	getnews()
+	articles = Getnews()
 }
