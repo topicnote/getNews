@@ -5,9 +5,9 @@ import (
 )
 
 type NewsStruct struct {
-	id    int
-	title string
-	url   string
+	Id    int
+	Title string
+	Url   string
 }
 
 var articles []NewsStruct
@@ -22,9 +22,9 @@ func Getnews() []NewsStruct {
 
 	for index, item := range items { //sliceにappend
 		var news NewsStruct
-		news.title = item.Title
-		news.url = item.Link
-		news.id = index
+		news.Title = item.Title
+		news.Url = item.Link
+		news.Id = index
 		newsSlice = append(newsSlice, news)
 	}
 	return newsSlice
