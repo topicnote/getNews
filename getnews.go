@@ -1,4 +1,4 @@
-package main
+package getnews
 
 import (
 	"github.com/mmcdole/gofeed"
