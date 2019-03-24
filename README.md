@@ -4,10 +4,15 @@ Web scraping and get related phrases
 ## 段階
 [[getNews]] -> makeTopic -> webView
 
+## ライブラリインポート
+`go get github.com/mmcdole/gofeed`
+
 ## 実行方法
-`python3 genrereq.py [pol:政治　eco:経済　int:国際　spo:スポーツ　soc:社会　ent:エンタメ　it:IT]`
+`go run getnews.go`
 
 ## 出力
+（とりあえずPrintlnしてるのでどっかに格納予定）
+
 （`~/tmp/` に中間ファイルを生成）
 
 `~/` に結果をjson形式で出力
