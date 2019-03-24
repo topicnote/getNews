@@ -4,6 +4,9 @@ Web scraping and get related phrases
 ## 段階
 [[getNews]] -> makeTopic -> webView
 
+## ライブラリインポート
+`go get github.com/mmcdole/gofeed`
+
 ## 実行方法
 `go run getnews.go`
 
