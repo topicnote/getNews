@@ -1,4 +1,4 @@
-# getnews
+# getNews
 Web scraping and get related phrases
 
 ## 段階
