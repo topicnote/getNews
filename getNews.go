@@ -1,47 +1,49 @@
-package main
+package getnews
 
 import (
+	"os"
+
 	"github.com/mmcdole/gofeed"
 )
 
 //NewsStruct 記事の構造体
 type NewsStruct struct {
-	ID      int
-	Title   string
-	URL     string
-	Keyword map[string]float64
+	ID    int
+	Title string
+	URL   string
 }
 
-func makeArticle(id int, item *gofeed.Item) NewsStruct {
+func makeNewsStruct(item *gofeed.Item) NewsStruct {
 	var news NewsStruct
-	news.ID = id
 	news.Title = item.Title
 	news.URL = item.Link
-	// fmt.Println(news.Title)
-	// fmt.Println(item.Description)
-	news.Keyword = makeTopic.getKeyword(news.Title, item.Description)
 	return news
 }
 
-var articles []NewsStruct
-
-//Getnews 構造体にニュース内容をマッピングして返す関数
-func Getnews() []NewsStruct {
+//GetNews 渡されたRSSのURLに入ってるニュースをNewsStruct(のSlice)にして返す関数
+func GetNews(URL string) []NewsStruct {
+	var newsTitle string
+	var newsList []NewsStruct
 	fp := gofeed.NewParser()
-
-	// feed, _ := fp.ParseURL("http://www.news24.jp/rss/index.rdf")
-	feed, _ := fp.ParseURL("https://www3.nhk.or.jp/rss/news/cat0.xml")
+	feed, _ := fp.ParseURL(URL)
 	items := feed.Items
 
-	var newsSlice []NewsStruct
+	// pythonのための中間ファイルの用意
+	file, _ := os.OpenFile("./newsList.txt", os.O_WRONLY|os.O_CREATE, 0666)
+	defer file.Close()
 
-	for index, item := range items { //sliceにappend
-		article := makeArticle(index, item)
-		newsSlice = append(newsSlice, article)
+	for _, item := range items { //sliceにappend
+		news := makeNewsStruct(item)
+		newsList = append(newsList, news)
+		newsTitle = news.Title + "\n"
+		file.Write(([]byte)(newsTitle))
 	}
-	return newsSlice
+	return newsList
 }
 
-func main() {
-	articles = Getnews()
-}
+// func main() {
+// 	articles := GetNews("https://www3.nhk.or.jp/rss/news/cat0.xml")
+// 	for _, article := range articles {
+// 		fmt.Println(article.Title)
+// 	}
+// }
