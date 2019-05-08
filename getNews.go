@@ -3,27 +3,21 @@ package getnews
 import (
 	"os"
 
+	"../structs"
 	"github.com/mmcdole/gofeed"
 )
 
-//NewsStruct 記事の構造体
-type NewsStruct struct {
-	ID    int
-	Title string
-	URL   string
-}
-
-func makeNewsStruct(item *gofeed.Item) NewsStruct {
-	var news NewsStruct
+func makeNewsStruct(item *gofeed.Item) structs.NewsStruct {
+	var news structs.NewsStruct
 	news.Title = item.Title
 	news.URL = item.Link
 	return news
 }
 
 //GetNews 渡されたRSSのURLに入ってるニュースをNewsStruct(のSlice)にして返す関数
-func GetNews(URL string) []NewsStruct {
+func GetNews(URL string) []structs.NewsStruct {
 	var newsTitle string
-	var newsList []NewsStruct
+	var newsList []structs.NewsStruct
 	fp := gofeed.NewParser()
 	feed, _ := fp.ParseURL(URL)
 	items := feed.Items
