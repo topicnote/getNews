@@ -23,7 +23,7 @@ func GetNews(URL string) []structs.NewsStruct {
 	items := feed.Items
 
 	// pythonのための中間ファイルの用意
-	file, _ := os.OpenFile("./newsList.txt", os.O_WRONLY|os.O_CREATE, 0666)
+	file, _ := os.OpenFile("$NLP_MODEL_PATH/newsList.txt", os.O_WRONLY|os.O_CREATE, 0666)
 	defer file.Close()
 
 	for _, item := range items { //sliceにappend
