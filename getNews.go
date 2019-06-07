@@ -2,6 +2,7 @@ package getnews
 
 import (
 	"os"
+	"fmt"
 
 	"../structs"
 	"github.com/mmcdole/gofeed"
@@ -23,7 +24,11 @@ func GetNews(URL string) []structs.NewsStruct {
 	items := feed.Items
 
 	// pythonのための中間ファイルの用意
-	file, _ := os.OpenFile("$NLP_MODEL_PATH/newsList.txt", os.O_WRONLY|os.O_CREATE, 0666)
+	newsListPath := os.Getenv("NLP_MODEL_PATH") + "/newsList.txt"
+	if err := os.Remove(newsListPath); err != nil {
+        fmt.Println(err)
+    }
+	file, _ := os.OpenFile(newsListPath, os.O_WRONLY|os.O_CREATE, 0666)
 	defer file.Close()
 
 	for _, item := range items { //sliceにappend
